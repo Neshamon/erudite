@@ -104,7 +104,7 @@
 			   stream
 			   syntax)
   (destructuring-bind (_ target label) syntax
-    (format stream "[~A](~A)" label target)))
+    (format stream "[[~A][~A]]" label target)))
 
 (defmethod %format-syntax ((output-type (eql :org))
 			   (selector (eql :label))
