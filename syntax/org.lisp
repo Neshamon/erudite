@@ -8,7 +8,7 @@
 			   syntax)
   (let ((section-name (second syntax)))
     (terpri stream)
-    (write-string "# " stream)
+    (write-string "* " stream)
     (write-string section-name stream)
     (terpri stream)))
 
@@ -18,7 +18,7 @@
 			   syntax)
   (let ((subsection-name (second syntax)))
     (terpri stream)
-    (write-string "## " stream)
+    (write-string "** " stream)
     (write-string subsection-name stream)
     (terpri stream)))
 
@@ -28,7 +28,7 @@
 			   syntax)
   (let ((subsubsection-name (second syntax)))
     (terpri stream)
-    (write-string "### " stream)
+    (write-string "*** " stream)
     (write-string subsubsection-name stream)
     (terpri stream)))
 
