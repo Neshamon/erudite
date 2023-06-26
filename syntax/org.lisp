@@ -33,6 +33,16 @@
     (terpri stream)))
 
 (defmethod %format-syntax ((output-type (eql :org))
+			   (selector (eql :subsubsubsection))
+			   stream
+			   syntax)
+  (let ((subsubsubsection-name (second syntax)))
+    (terpri stream)
+    (write-string "**** " stream)
+    (write-string subsubsection-name stream)
+    (terpri stream)))
+
+(defmethod %format-syntax ((output-type (eql :org))
 			   (selector (eql :begin-verbatim))
 			   stream
 			   syntax)
@@ -48,7 +58,7 @@
 			   (selector (eql :inline-verbatim))
 			   stream
 			   syntax)
-  (format stream "`~A`" (second syntax)))
+  (format stream "=~A=" (second syntax)))
 
 
 (defmethod %format-syntax ((output-type (eql :org))
@@ -91,13 +101,13 @@
 			   (selector (eql :bold))
 			   stream
 			   syntax)
-  (format stream "**~A**" (second syntax)))
+  (format stream "*~A*" (second syntax)))
 
 (defmethod %format-syntax ((output-type (eql :org))
 			   (selector (eql :italics))
 			   stream
 			   syntax)
-  (format stream "_~A_" (second syntax)))
+  (format stream "/~A/" (second syntax)))
 
 (defmethod %format-syntax ((output-type (eql :org))
 			   (selector (eql :link))
