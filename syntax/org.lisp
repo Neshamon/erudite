@@ -46,13 +46,13 @@
 			   (selector (eql :begin-verbatim))
 			   stream
 			   syntax)
-  (format stream "```"))
+  (format stream "#+begin_example"))
 
 (defmethod %format-syntax ((output-type (eql :org))
 			   (selector (eql :end-verbatim))
 			   stream
 			   syntax)
-  (format stream "```"))
+  (format stream "#+end_example"))
 
 (defmethod %format-syntax ((output-type (eql :org))
 			   (selector (eql :inline-verbatim))
