@@ -33,6 +33,16 @@
     (terpri stream)))
 
 (defmethod %format-syntax ((output-type (eql :markdown))
+			   (selector (eql :subsubsubsection))
+			   stream
+			   syntax)
+  (let ((subsubsubsection-name (second syntax)))
+    (terpri stream)
+    (write-string "#### " stream)
+    (write-string subsubsubsection-name stream)
+    (terpri stream)))
+
+(defmethod %format-syntax ((output-type (eql :markdown))
 			   (selector (eql :begin-verbatim))
 			   stream
 			   syntax)

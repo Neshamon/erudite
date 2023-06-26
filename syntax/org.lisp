@@ -39,7 +39,7 @@
   (let ((subsubsubsection-name (second syntax)))
     (terpri stream)
     (write-string "**** " stream)
-    (write-string subsubsection-name stream)
+    (write-string subsubsubsection-name stream)
     (terpri stream)))
 
 (defmethod %format-syntax ((output-type (eql :org))
@@ -66,14 +66,14 @@
 			   stream
 			   syntax)
   (terpri stream)
-  (format stream "```lisp")
+  (format stream "#+begin_src lisp")
   (terpri stream))
 
 (defmethod %format-syntax ((output-type (eql :org))
 			   (selector (eql :end-code))
 			   stream
 			   syntax)
-  (format stream "```"))
+  (format stream "#+end_src"))
 
 (defmethod %format-syntax ((output-type (eql :org))
 			   (selector (eql :begin-list))

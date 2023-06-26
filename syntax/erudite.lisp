@@ -65,6 +65,16 @@
 	      (format-syntax output (list :subsubsection title)))
 	    nil))
 
+;; @subsubsection Subsubsubsection
+(define-erudite-syntax subsubsubsection
+  (:match (line)
+    (scan "@subsubsubsection" line))
+  (:process (line output output-type)
+	    (register-groups-bind (title) 
+		("@subsubsubsection\\s+(.+)" line)
+	      (format-syntax output (list :subsubsubsection title)))
+	    nil))
+
 ;; @subsubsection Verbatim
 (define-erudite-syntax begin-verbatim
   (:match (line)
