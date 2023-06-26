@@ -55,11 +55,17 @@
   (format stream "```"))
 
 (defmethod %format-syntax ((output-type (eql :markdown))
-			   (selector (eql :inline-verbatim))
+                           (selector (eql :inline-verbatim))
 			   stream
 			   syntax)
   (format stream "`~A`" (second syntax)))
 
+;; Will keep until I find a better solution
+(defmethod %format-syntax ((output-type (eql :markdown))
+                           (selector (eql :inline-code))
+                           stream
+                           syntax)
+  (format stream "`~A`" (second syntax)))
 
 (defmethod %format-syntax ((output-type (eql :markdown))
 			   (selector (eql :begin-code))

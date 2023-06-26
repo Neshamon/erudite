@@ -60,6 +60,11 @@
 			   syntax)
   (format stream "=~A=" (second syntax)))
 
+(defmethod %format-syntax ((output-type (eql :org))
+                           (selector (eql :inline-code))
+                           stream
+                           syntax)
+  (format stream "~~~A~~" (second syntax)))
 
 (defmethod %format-syntax ((output-type (eql :org))
 			   (selector (eql :begin-code))

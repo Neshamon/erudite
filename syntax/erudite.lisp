@@ -169,6 +169,16 @@
 				 (format-syntax nil (list :inline-verbatim text)))
 			       :simple-calls t)))
 
+;; @subsubsection Inline code
+(define-erudite-syntax inline-code
+  (:match (line)
+    (scan "@in-code{(.*?)}" line))
+  (:process (line output output-type)
+	    (regex-replace-all "@in-code{(.*?)}" line
+			       (lambda (match text)
+				 (format-syntax nil (list :inline-code text)))
+			       :simple-calls t)))
+
 ;; @subsubsection Link
 (define-erudite-syntax link
   (:match (line)
